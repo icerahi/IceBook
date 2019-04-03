@@ -1,0 +1,12 @@
+{% for object in object_list %}
+
+<a href="{% url 'detail' pk=object.id %}">  {{ object.content }} </a><br>
+    <i>{{ object.user}}</i><br>
+
+    {{ object.timestamp|timesince }}<br><br>
+
+{% empty %}
+    <p>you tweet yet</p>
+{% endfor %}
+
+{{ rahi }}
