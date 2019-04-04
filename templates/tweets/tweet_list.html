@@ -1,12 +1,16 @@
 {% for object in object_list %}
 
-<a href="{% url 'detail' pk=object.id %}">  {{ object.content }} </a><br>
+   {{ object.content }}<br>
     <i>{{ object.user}}</i><br>
 
     {{ object.timestamp|timesince }}<br><br>
 
 {% empty %}
+{% if request.GET.q %}
+<p>Not tweet found</p>
+{% else %}
     <p>you tweet yet</p>
+{% endif %}
 {% endfor %}
 
 {{ rahi }}
