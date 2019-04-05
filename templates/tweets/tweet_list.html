@@ -1,16 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}All tweets | {{ block.super }} {% endblock title %}
+
+{% block content %}
+
+
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+{% include 'tweets/search_form.html' %}<br>
 {% for object in object_list %}
+        <div class="media">
+            {% if object.image %}
+          <img class="mr-3" src="..." alt="Generic placeholder image">
+            {% endif %}
+          <div class="media-body">
+             {{ object.content }}<br>
+              Post by  <i>{{ object.user}}</i> | <a href="{{ object.get_absolute_url }}">view</a> <br>
+            {{ object.timestamp|timesince }}
+           </div>
 
-   {{ object.content }}<br>
-    <i>{{ object.user}}</i><br>
+        </div>
+<hr>
 
-    {{ object.timestamp|timesince }}<br><br>
 
-{% empty %}
-{% if request.GET.q %}
-<p>Not tweet found</p>
-{% else %}
-    <p>you tweet yet</p>
-{% endif %}
+
+
+
+
+        {% empty %}
+        {% if request.GET.q %}
+        <p>Not tweet found</p>
+        {% else %}
+            <p>you tweet yet</p>
+        {% endif %}
 {% endfor %}
-
+</div> </div>
 {{ rahi }}
+
+{% endblock content %}

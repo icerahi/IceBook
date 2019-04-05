@@ -1,5 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Detele tweet | {{ block.super }}{% endblock title %}
+
+{% block content %}
 <form action="" method="POST" class="form">
     {% csrf_token %}
     <P>Are you want to confirm delete the tweet "{{ object }}"?</P>
     <input type="submit" value="confirm">
 </form>
+{% endblock content %}
