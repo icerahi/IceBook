@@ -28,8 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'tweets',
+    'bootstrap3',
+    'crispy_forms',
 ]
-
+BOOTSTRAP3 = {
+    'jquery_url': '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+    'base_url': '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/',
+}
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,3 +126,6 @@ STATIC_ROOT=os.path.join(BASE_DIR,'static-root')
 MEDIA_URL='/media/'
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
+CRISPY_TEMPLATE_PACE="bootstrap3"

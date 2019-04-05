@@ -1,13 +1,8 @@
 
-<div class="row">
-    <div class="col-sm-8">
 
-<form class="form-inline" action="{% url 'tweet:list' %}">
+<form class="navbar-form navbar-left" method="GET" action="{% url 'tweet:list' %}">
     <div class="form-group">
     <input type="text" class="form-control" name="q" placeholder="Your Search" value="{{ request.GET.q}}">
-    <input type="submit" class="btn btn-default" value="Search">
+    <button type="submit" class="btn btn-default">Submit</button>
         </div>
 </form>
-</div>
-
-</div>

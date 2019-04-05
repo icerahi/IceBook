@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import RedirectView
 
 from .views import (
     TweetDetailView,
@@ -9,7 +10,9 @@ from .views import (
 )
 
 urlpatterns=[
-    path('',TweetListView.as_view(),name="list"), #/tweet/
+    path('',RedirectView.as_view(url='/')), #/redirect/
+
+    path('search/',TweetListView.as_view(),name="list"), #/tweet/
 
     path('create/',TweetCreateView.as_view(),name="create"),#/tweet/create
     path('<int:pk>/',TweetDetailView.as_view(),name="detail"),#/tweet/1
