@@ -17,6 +17,7 @@
     <title>{% block title %}IceBook.com {% endblock title %}</title>
   </head>
   <body>
+
   {% include 'navbar.html' %}
      <div class="container">
 
@@ -25,7 +26,39 @@
      </div>
 
 
+  {% block script %} {% endblock script %}
 
+  <script>
+    //auto search
+  $(document).ready(function(){
+    var typingTimer;
+    var doneInterval=500; // in ms
+    var searchInput=$("#navbar-search-form input[type=text]")
+    var searchQuery;
+
+    searchInput.keyup(function(event){
+
+      searchQuery=$(this).val()
+      clearTimeout(typingTimer)
+      typingTimer=setTimeout(doneSearchTyping, doneInterval)
+       
+    })
+    searchInput.keydown(function(event){   
+      console.log(event.key)
+      clearTimeout(typingTimer)
+    })
+
+    function doneSearchTyping(){
+      if (searchQuery){
+        //do search
+        var url="/tweet/search/?q=" + searchQuery
+        document.location.href = url;
+      }
+    }
+
+  })
+
+  </script>
 
   </body>
 </html>

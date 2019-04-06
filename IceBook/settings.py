@@ -28,8 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'tweets',
+    'accounts',
+
     'bootstrap3',
     'crispy_forms',
+    'rest_framework',
 ]
 BOOTSTRAP3 = {
     'jquery_url': '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
@@ -129,3 +132,12 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 
 CRISPY_TEMPLATE_PACE="bootstrap3"
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
