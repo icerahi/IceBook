@@ -42,8 +42,8 @@ function getParameterByName(name, url) {
 
 
             $("#tweet-container").append(
-            "<div class=\"media\"> <div class=\"media-body\">"+tweetContent+"<br/> <i> Post by "+tweetUser.
-            username+"</i> | " +"<a href='{{ object.get_absolute_url }}'>view</a> <br>"+ dateDisplay + '</div></div><hr>'
+            "<div class=\"media\"> <div class=\"media-body\">"+tweetContent+"<br/> <i> Post by <a href='"+tweetUser.url+"'>"+ tweetUser.
+            username+"</a></i> | " +"<a href='{{ object.get_absolute_url }}'>view</a> <br>"+ dateDisplay + '</div></div><hr>'
             )
         })
        
