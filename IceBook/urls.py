@@ -9,12 +9,15 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',TweetListView.as_view(),name='home'),
+
     path('tweet/',include(('tweets.urls','tweets'),namespace='tweet')),
 
     path('',include(('accounts.urls','accounts'),namespace='profiles')),
-    path('api/tweet/',include(('tweets.api.urls','tweets'),namespace='tweet-api')),
 
+    path('api/tweet/',include(('tweets.api.urls','tweets'),namespace='tweet-api')),
+    path('mdeditor/', include('mdeditor.urls')),
 ]
+
 
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

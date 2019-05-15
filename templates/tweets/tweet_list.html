@@ -24,7 +24,7 @@ function getParameterByName(name, url) {
     var query=getParameterByName('q')
     var tweetList=[];
 
- 
+
 
     $.ajax({
         url: "/api/tweet/",
@@ -46,7 +46,7 @@ function getParameterByName(name, url) {
             username+"</a></i> | " +"<a href='{{ object.get_absolute_url }}'>view</a> <br>"+ dateDisplay + '</div></div><hr>'
             )
         })
-       
+
         },
 
         error: function(data){
@@ -57,7 +57,7 @@ function getParameterByName(name, url) {
     });
 
 });
-   
+
 </script>
 {% endblock %}
 
@@ -82,7 +82,11 @@ function getParameterByName(name, url) {
 
     {% endif %}
 
+
     <div id="tweet-container">
+      {% for object in object_list %}
+      {{ object.content }}
+      {% endfor %}
 
     </div>
 

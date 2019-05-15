@@ -4,6 +4,7 @@
 
     {% csrf_token %}
     {{ form|crispy }}
+    {{ form.media }}
 
     <input class="btn btn-primary" type="submit", value="{{ btn_title }}">
 </form>
